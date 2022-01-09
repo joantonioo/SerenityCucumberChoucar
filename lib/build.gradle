@@ -1,0 +1,36 @@
+buildscript {
+  repositories {
+  	    mavenLocal()
+        mavenCentral()   
+ }
+dependencies {	
+    classpath('net.serenity-bdd:serenity-gradle-plugin:2.3.12')
+}
+}
+plugins {
+    
+    id 'java-library'
+}
+apply plugin: 'net.serenity-bdd.aggregator'
+
+repositories {
+        mavenLocal()
+        mavenCentral()
+  
+}
+dependencies {
+    
+    implementation 'net.serenity-bdd:serenity-junit:2.3.12'
+    implementation 'net.serenity-bdd:serenity-cucumber6:2.3.12' 
+    implementation 'net.serenity-bdd:serenity-core:2.3.12'   
+    implementation 'org.slf4j:slf4j-simple:1.7.7'
+    implementation 'com.google.guava:guava:23.0' 
+    testImplementation 'org.testng:testng:6.8'
+}   
+test {
+
+	ignoreFailures = true
+}
+
+
+gradle.startParameter.continueOnFailure = true
